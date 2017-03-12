@@ -12,9 +12,16 @@
         name="search"
         placeholder="fuzzy search">
 
+      <input class="input-std"
+        type="number"
+        name="limit"
+        min="0"
+        placeholder="limit"
+        ng-model="homeCtrl.limit">
+
       <ul>
         <gallery-item
-          ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.search | orderBy:'name'"
+          ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.search | orderBy : 'name' | limitTo : homeCtrl.limit"
           gallery="item"
           ng-click="homeCtrl.currentGallery=item">
         </gallery-item>
