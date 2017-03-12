@@ -6,9 +6,15 @@
 
     <div>
       <h2>Galleries</h2>
+      <input class="input-std"
+        ng-model="homeCtrl.search"
+        type="text"
+        name="search"
+        placeholder="fuzzy search">
+
       <ul>
         <gallery-item
-          ng-repeat="item in homeCtrl.galleries"
+          ng-repeat="item in homeCtrl.galleries | orderBy:'name'"
           gallery="item"
           ng-click="homeCtrl.currentGallery=item">
         </gallery-item>
