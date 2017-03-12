@@ -14,7 +14,7 @@
 
       <ul>
         <gallery-item
-          ng-repeat="item in homeCtrl.galleries | orderBy:'name'"
+          ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.search | orderBy:'name'"
           gallery="item"
           ng-click="homeCtrl.currentGallery=item">
         </gallery-item>
